@@ -54,12 +54,12 @@ class ViewController: UIViewController {
         addAdressButton.addTarget(self, action: #selector(addAdressButtonTapped), for: .touchUpInside)
         routeButton.addTarget(self, action: #selector(routeButtonTapped), for: .touchUpInside)
         resetButton.addTarget(self, action: #selector(resetButtonTapped), for: .touchUpInside)
-        
-        
     }
     
     @objc func addAdressButtonTapped() {
-        print("TapAdd")
+        alertAddAdress(title: "Добавить", placeholder: "Введите") { (text) in
+            print(text)
+        }
     }
     
     @objc func routeButtonTapped() {
@@ -69,8 +69,6 @@ class ViewController: UIViewController {
     @objc func resetButtonTapped() {
         print("TapReset")
     }
-
-
 }
 
 extension ViewController {
@@ -91,7 +89,6 @@ extension ViewController {
             addAdressButton.trailingAnchor.constraint(equalTo: mapView.trailingAnchor, constant: -20),
             addAdressButton.heightAnchor.constraint(equalToConstant: 40),
             addAdressButton.widthAnchor.constraint(equalToConstant: 40)
-            
         ])
         
         mapView.addSubview(routeButton)
